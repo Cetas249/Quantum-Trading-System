@@ -1,0 +1,85 @@
+"""
+pyproject.toml
+Python 3.14 project configuration
+Updated for wxPython dashboard
+"""
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantum-trading-system"
+version = "1.0.0"
+description = "Quantum-Inspired Financial Trading System with wxPython Dashboard"
+readme = "README.md"
+requires-python = ">=3.14"
+license = {text = "MIT"}
+authors = [
+    {name = "Trading Team", email = "trading@example.com"}
+]
+
+dependencies = [
+    # Quantum Computing
+    "pennylane>=0.38.0",
+    "qiskit>=1.3.0",
+    "qiskit-aer>=0.15.0",
+    
+    # Data Science
+    "numpy>=2.1.0",
+    "pandas>=2.2.0",
+    "scipy>=1.14.0",
+    "scikit-learn>=1.5.0",
+    
+    # Machine Learning
+    "tensorflow>=2.18.0",
+    "torch>=2.5.0",
+    "transformers>=4.46.0",
+    
+    # Financial Data
+    "yfinance>=0.2.49",
+    "alpaca-trade-api>=3.2.0",
+    "ccxt>=4.4.0",
+    
+    # Visualization & UI
+    "plotly>=5.24.0",
+    "matplotlib>=3.9.0",
+    "wxPython>=4.2.0",
+    
+    # Async and Concurrency
+    "aiohttp>=3.11.0",
+    "redis>=5.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+]
+
+# Legacy Streamlit dashboard (optional)
+streamlit = [
+    "streamlit>=1.40.0",
+]
+
+[project.scripts]
+quantum-trading = "main:main"
+trading-dashboard = "dashboard_wx:run_dashboard_wx"
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+select = ["E", "F", "W", "I"]
+
+[tool.mypy]
+python_version = "3.14"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"

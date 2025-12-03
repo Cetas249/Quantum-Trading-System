@@ -1,0 +1,42 @@
+# Dockerfile for Quantum Trading System
+# Python 3.14 with wxPython Dashboard Support
+
+FROM python:3.14-slim
+
+WORKDIR /app
+
+# Install system dependencies for wxPython and GUI libraries
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    libgtk-3-dev \
+    libwebkit2gtk-4.0-dev \
+    libgstreamer1.0-dev \
+    libgstreamer-plugins-base1.0-dev \
+    libnotify-dev \
+    libjpeg-dev \
+    libtiff-dev \
+    libsdl2-dev \
+    libsm-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY . .
+
+# Expose port for Streamlit (if using legacy dashboard)
+EXPOSE 8501
+
+# Set environment for Python 3.14
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONOPTIMIZE=2
+ENV DISPLAY=:0
+
+# Default: Run wxPython dashboard (for GUI environments)
+# For Streamlit web dashboard, use: docker run -p 8501:8501 <image> streamlit run dashboard.py
+CMD ["python", "dashboard_wx.py"]

@@ -1,0 +1,28 @@
+"""
+quantum/optimization_algorithms.py
+Quantum optimization implementations for Python 3.14
+"""
+
+import numpy as np
+import pennylane as qml
+from pennylane import numpy as pnp
+from dataclasses import dataclass
+from typing import Any, Callable, Optional
+from collections.abc import Sequence
+from functools import lru_cache
+
+from qiskit import QuantumCircuit
+from qiskit.algorithms import QAOA
+from qiskit.algorithms.optimizers import COBYLA
+from qiskit.primitives import Sampler
+from qiskit_optimization import QuadraticProgram
+from qiskit_optimization.algorithms import MinimumEigenOptimizer
+
+@dataclass
+class QuantumResult:
+    """Result from quantum computation"""
+    optimal_weights: np.ndarray
+    optimization_result: dict[str, Any]
+    quantum_params: np.ndarray
+    iterations: int
+    convergence_achieved: bool
