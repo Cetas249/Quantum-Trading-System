@@ -779,28 +779,8 @@ The project is positioned for expansion into options strategies, alternative dat
 
 ---
 
-## REPOSITORY STRUCTURE
 
-```
-Quantum-Trading-System/
-├── main.py                      # Entry point
-├── setup.py                     # Installation script
-├── settings.py                  # Configuration
-├── test.py                      # Unit tests
-├── models/
-│   ├── ensemble_predictor.py    # 6-model ensemble + LSTM + RL
-│   ├── market_data_collector.py # Data fetching & sentiment
-│   ├── risk_manager.py          # 13 risk metrics
-│   └── execution_system.py      # Order execution
-├── quantum/
-│   └── optimization_algorithms.py # QAOA + Quantum GA + VQA
-├── notebooks/
-│   ├── backtest.ipynb           # Historical analysis
-│   └── research.ipynb           # Experimental features
-├── requirements.txt             # Dependencies
-├── README.md                    # Documentation
-└── LICENSE                      # MIT License
-```
+
 
 ---
 
