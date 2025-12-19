@@ -9,7 +9,7 @@
 |----------|---------|
 | **Project Title** | Quantum-Inspired Financial Trading System |
 | **Repository** | https://github.com/Cetas249/Quantum-Trading-System |
-| **Python Version** | 3.14 (Free-Threaded) |
+| **Python Version** | 3.11 |
 | **Project Status** | Production-Ready with Research Components |
 | **Domain** | Algorithmic Trading, Quantitative Finance, Quantum Computing |
 
